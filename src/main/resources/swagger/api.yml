@@ -1,8 +1,8 @@
 swagger: '2.0'
 
 schemes:
- - http
- - https
+  - http
+  - https
 
 host: localhost:8080
 basePath: /pessoas/v1

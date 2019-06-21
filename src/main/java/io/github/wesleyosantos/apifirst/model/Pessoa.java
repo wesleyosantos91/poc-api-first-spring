@@ -16,5 +16,5 @@ public class Pessoa {
     private String nome;
     private LocalDate dataNascimento;
     private String cpf;
-    private String email ;
+    private String email;
 }
