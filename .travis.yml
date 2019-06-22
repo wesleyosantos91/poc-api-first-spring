@@ -1,7 +1,10 @@
 language: java
-script:
-  - mvn clean package dockerfile:build
+sudo: required
 jdk:
   - oraclejdk8
+env:
+  - NO_GCE_CHECK=true
+script:
+  - mvn clean package dockerfile:build
 before_install:
   - chmod +x mvnw
