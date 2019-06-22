@@ -1,7 +1,6 @@
 language: java
 script:
   - mvn clean package dockerfile:build
-  -e "NO_GCE_CHECK=True"
 jdk:
   - oraclejdk8
 before_install:
