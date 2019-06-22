@@ -8,3 +8,4 @@ script:
   - mvn clean package dockerfile:build
 before_install:
   - chmod +x mvnw
+  - chmod +x /usr/bin/docker-credential-gcr
