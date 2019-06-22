@@ -1,6 +1,6 @@
 language: java
 script:
-  - ./mvnw clean package dockerfile:build
+  - mvn clean package dockerfile:build
 jdk:
   - oraclejdk8
 before_install:
