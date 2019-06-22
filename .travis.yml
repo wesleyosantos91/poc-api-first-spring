@@ -3,7 +3,7 @@ sudo: required
 jdk:
   - oraclejdk8
 env:
-  - NO_GCE_CHECK=true
+  - NO_GCE_CHECK=false
 script:
   - mvn clean package dockerfile:build
 before_install:
