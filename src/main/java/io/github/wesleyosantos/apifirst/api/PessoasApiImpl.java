@@ -1,9 +1,12 @@
 package io.github.wesleyosantos.apifirst.api;
 
+import io.github.wesleyosantos.apifirst.service.PessoaService;
 import io.swagger.api.PessoasApi;
 import io.swagger.model.RequestPostPessoa;
 import io.swagger.model.RequestPutPessoa;
 import io.swagger.model.ResponsePessoa;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 
@@ -14,10 +17,13 @@ import java.util.List;
  * Created by wesleyosantos91 on 2019-06-03.
  */
 @Controller
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class PessoasApiImpl implements PessoasApi {
 
+    private final PessoaService pessoaService;
+
     @Override
-    public ResponseEntity<Void> alterarPessoa(Integer codigo, @Valid RequestPutPessoa body) {
+    public ResponseEntity<Void> alterarPessoa(Long codigo, @Valid RequestPutPessoa body) {
         return null;
     }
 
@@ -27,17 +33,18 @@ public class PessoasApiImpl implements PessoasApi {
     }
 
     @Override
-    public ResponseEntity<ResponsePessoa> consultarPeloCodigo(Integer codigo) {
-        return null;
+    public ResponseEntity<ResponsePessoa> consultarPeloCodigo(Long codigo) {
+        return ResponseEntity.ok(this.pessoaService.consultarPeloCodigo(codigo));
     }
 
     @Override
     public ResponseEntity<List<ResponsePessoa>> consultarTodos() {
-        return null;
+
+        return ResponseEntity.ok(this.pessoaService.consultarTodos());
     }
 
     @Override
-    public ResponseEntity<Void> excluirPessoa(Integer codigo) {
+    public ResponseEntity<Void> excluirPessoa(Long codigo) {
         return null;
     }
 }

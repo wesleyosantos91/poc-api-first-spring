@@ -3,6 +3,13 @@ package io.github.wesleyosantos.apifirst.model;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
@@ -10,11 +17,24 @@ import java.time.LocalDate;
  */
 @Getter
 @Setter
-public class Pessoa {
+@Entity
+@Table(name = "pessoa")
+public class Pessoa implements Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "codigo")
     private Long codigo;
+
+    @Column(name = "nome")
     private String nome;
+
+    @Column(name = "data_nascimento")
     private LocalDate dataNascimento;
+
+    @Column(name = "cpf")
     private String cpf;
+
+    @Column(name = "email")
     private String email;
 }

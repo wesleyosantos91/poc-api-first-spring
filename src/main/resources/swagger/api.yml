@@ -93,8 +93,8 @@ paths:
           name: codigo
           description: código da pessoa
           required: true
-          type: "integer"
-          format: "int64"
+          type: integer
+          format: int64
       responses:
         200:
           description: OK

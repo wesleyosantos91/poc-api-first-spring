@@ -20,11 +20,12 @@
         <io.springfox.version>2.9.2</io.springfox.version>
         <io.swagger>1.5.21</io.swagger>
 
-        <swagger-codegen-maven-plugin.version>3.0.0</swagger-codegen-maven-plugin.version>
+        <swagger-codegen-maven-plugin.version>3.0.7</swagger-codegen-maven-plugin.version>
         <swagger-codegen-generators.version>1.0.0-rc1</swagger-codegen-generators.version>
 
         <docker.version>1.4.2</docker.version>
         <docker.repository>wesleyosantos91</docker.repository>
+        <reflections.version>0.9.11</reflections.version>
     </properties>
 
     <dependencies>
@@ -35,14 +36,43 @@
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <scope>runtime</scope>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -61,6 +91,12 @@
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${io.springfox.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.reflections</groupId>
+            <artifactId>reflections</artifactId>
+            <version>${reflections.version}</version>
         </dependency>
 
     </dependencies>

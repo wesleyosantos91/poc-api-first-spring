@@ -1,0 +1,14 @@
+spring:
+  profiles:
+    active: homol
+
+springfox:
+  documentation:
+  swagger:
+    v2:
+      path: /api-docs
+
+#minha:
+#  idade: ${MINHA_IDADE}
+
+#teste=${random.int[0,10]}
