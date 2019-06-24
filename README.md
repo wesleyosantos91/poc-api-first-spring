@@ -4,7 +4,7 @@ Prova de conceito - API FIRST
 
 [![Build Status](https://travis-ci.org/wesleyosantos91/poc-api-first.svg?branch=master)](https://travis-ci.org/wesleyosantos91/poc-api-first)
 
-[![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=io.github.wesleyosantos%3Aapi-first&metric=alert_status)](https://sonarcloud.io/dashboard?id=io.github.wesleyosantos%3Aapi-first)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=io.github.wesleyosantos%3Aapi-first&metric=alert_status)](https://sonarcloud.io/dashboard/index/com.sonarqube.examples.standard-sqscanner-travis-project)
 
 [![SonarCloud Coverage](https://sonarcloud.io/api/project_badges/measure?project=io.github.wesleyosantos%3Aapi-first&metric=coverage)](https://sonarcloud.io/component_measures?id=io.github.wesleyosantos%3Aapi-first&metric=coverage&view=list)
 
