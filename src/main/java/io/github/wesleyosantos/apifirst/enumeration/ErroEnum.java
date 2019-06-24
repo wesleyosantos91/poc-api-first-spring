@@ -5,7 +5,7 @@ package io.github.wesleyosantos.apifirst.enumeration;
  */
 public enum ErroEnum {
 
-    PESSOA_COM_ESSE_CODIGO_NÃO_EXISTE("Pessoa com esse codigo não existe: ");
+    PESSOA_COM_ESSE_CODIGO_NAO_EXISTE("Pessoa com esse codigo não existe: ");
 
     private String detalhe;
 

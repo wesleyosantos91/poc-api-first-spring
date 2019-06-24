@@ -35,7 +35,7 @@ public class PessoaService {
         Optional<Pessoa> pessoaOptional = this.pessoaRepository.findById(codigo);
 
         if (!pessoaOptional.isPresent()) {
-            throw new ObjectNotFoundException(ErroEnum.PESSOA_COM_ESSE_CODIGO_NÃO_EXISTE.getDetalhe() + codigo);
+            throw new ObjectNotFoundException(ErroEnum.PESSOA_COM_ESSE_CODIGO_NAO_EXISTE.getDetalhe() + codigo);
         }
 
         BeanUtils.copyProperties(body, pessoaOptional.get(), "codigo");
@@ -61,12 +61,12 @@ public class PessoaService {
     public ResponsePessoa consultarPeloCodigo(Long codigo) {
 
         if (!exist(codigo)) {
-            throw new ObjectNotFoundException(ErroEnum.PESSOA_COM_ESSE_CODIGO_NÃO_EXISTE.getDetalhe() + codigo);
+            throw new ObjectNotFoundException(ErroEnum.PESSOA_COM_ESSE_CODIGO_NAO_EXISTE.getDetalhe() + codigo);
         }
 
         Optional<Pessoa> pessoaOptional = this.pessoaRepository.findById(codigo);
 
-        return pessoaMapper.toResponsePessoa(pessoaOptional.orElseThrow(() -> new ObjectNotFoundException(ErroEnum.PESSOA_COM_ESSE_CODIGO_NÃO_EXISTE.getDetalhe() + codigo)));
+        return pessoaMapper.toResponsePessoa(pessoaOptional.orElseThrow(() -> new ObjectNotFoundException(ErroEnum.PESSOA_COM_ESSE_CODIGO_NAO_EXISTE.getDetalhe() + codigo)));
 
     }
 
