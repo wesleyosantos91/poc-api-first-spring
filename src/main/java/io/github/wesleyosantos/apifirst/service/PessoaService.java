@@ -54,10 +54,7 @@ public class PessoaService {
 
     public List<ResponsePessoa> consultarTodos() {
 
-        return this.pessoaRepository.findAll().stream().map(p -> {
-            ResponsePessoa responsePessoa = pessoaMapper.toResponsePessoa(p);
-            return responsePessoa;
-        }).collect(Collectors.toList());
+        return this.pessoaRepository.findAll().stream().map(pessoaMapper::toResponsePessoa).collect(Collectors.toList());
     }
 
     public ResponsePessoa consultarPeloCodigo(Long codigo) {
@@ -67,7 +64,8 @@ public class PessoaService {
         }
 
         Optional<Pessoa> pessoaOptional = this.pessoaRepository.findById(codigo);
-        return pessoaMapper.toResponsePessoa(pessoaOptional.get());
+
+        return pessoaMapper.toResponsePessoa(pessoaOptional.orElseGet(null));
 
     }
 
