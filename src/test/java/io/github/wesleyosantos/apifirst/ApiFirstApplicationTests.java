@@ -23,7 +23,7 @@ public class ApiFirstApplicationTests {
     }
 
     @Test
-    public void main() {
+    public void ApiFirstApplicatioMain() {
         ApiFirstApplication.main(new String[]{});
     }
 
