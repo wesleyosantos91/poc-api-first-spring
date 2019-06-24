@@ -14,7 +14,7 @@ spring:
     url: ${DATABASE_URL}
     user: ${DATABASE_USERNAME}
     password: ${DATABASE_PASSWORD}
-    locations: classpath:/db/migration/homol
+    locations: classpath:/db/migration/prod
 
 
 

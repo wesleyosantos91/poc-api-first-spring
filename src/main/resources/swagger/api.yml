@@ -131,8 +131,10 @@ paths:
           schema:
             $ref: '#/definitions/RequestPutPessoa'
       responses:
-        '204':
+        '200':
           description: Alteração efeturada com sucesso!
+          schema:
+            $ref: '#/definitions/ResponsePessoa'
         '400':
           description: Requisição inválida.
           schema:

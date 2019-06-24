@@ -1,0 +1,3 @@
+DELETE FROM pessoa;
+
+ALTER TABLE pessoa ALTER COLUMN codigo RESTART WITH 1;

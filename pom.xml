@@ -20,12 +20,14 @@
         <io.springfox.version>2.9.2</io.springfox.version>
         <io.swagger>1.5.21</io.swagger>
 
-        <swagger-codegen-maven-plugin.version>3.0.7</swagger-codegen-maven-plugin.version>
-        <swagger-codegen-generators.version>1.0.0-rc1</swagger-codegen-generators.version>
+        <swagger-codegen-maven-plugin.version>3.0.8</swagger-codegen-maven-plugin.version>
+        <swagger-codegen-generators.version>1.0.8</swagger-codegen-generators.version>
 
         <docker.version>1.4.2</docker.version>
         <docker.repository>wesleyosantos91</docker.repository>
         <reflections.version>0.9.11</reflections.version>
+        <spring-mock-mvc.version>3.3.0</spring-mock-mvc.version>
+        <mapstruct-jdk8.version>1.3.0.Final</mapstruct-jdk8.version>
     </properties>
 
     <dependencies>
@@ -99,10 +101,44 @@
             <version>${reflections.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-jdk8</artifactId>
+            <version>${mapstruct-jdk8.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>spring-mock-mvc</artifactId>
+            <version>${spring-mock-mvc.version}</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${mapstruct-jdk8.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.6</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -135,16 +171,19 @@
                             <inputSpec>${project.basedir}/src/main/resources/swagger/api.yml</inputSpec>
                             <language>spring</language>
                             <output>${project.build.directory}/generated-sources</output>
+                            <generateApiTests>false</generateApiTests>
+                            <generateModelTests>false</generateModelTests>
                             <configOptions>
                                 <interfaceOnly>true</interfaceOnly>
                                 <dateLibrary>java8</dateLibrary>
+                                <java8>true</java8>
                             </configOptions>
                         </configuration>
                     </execution>
                 </executions>
                 <dependencies>
                     <dependency>
-                        <groupId>io.swagger</groupId>
+                        <groupId>io.swagger.codegen.v3</groupId>
                         <artifactId>swagger-codegen-generators</artifactId>
                         <version>${swagger-codegen-generators.version}</version>
                     </dependency>

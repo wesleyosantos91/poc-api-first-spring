@@ -1,27 +1,25 @@
 package io.github.wesleyosantos.apifirst.utils;
 
+import junit.framework.TestCase;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-
-import junit.framework.TestCase;
+import java.util.*;
 
 /**
  * Created by wesleyosantos91 on 2019-06-22.
  */
 public class GetterAndSetterTester {
 
-    /** Map with default instances for classes. */
+    /**
+     * Map with default instances for classes.
+     */
     private Map<Class, Object> defaultInstances;
 
-    /** A list of fields that should no be tested. */
+    /**
+     * A list of fields that should no be tested.
+     */
     private List<String> ignoredFields;
 
 
@@ -51,6 +49,7 @@ public class GetterAndSetterTester {
      * be used on a setter or to construct a class, the class
      * will be looked in the map and the value object will be used
      * as instance.
+     *
      * @param instances the map with classes and its instances to use.
      */
     public void addDefaultInstances(final Map<Class, Object> instances) {
@@ -66,15 +65,16 @@ public class GetterAndSetterTester {
      * classes.
      * If complicated instantiations are involved, it's recommended to use
      * the addDefaultInstances method.
+     *
      * @param instance the instance to test.
      */
     public void testInstance(final Object instance) {
 
-        List <Field> fields = Arrays.asList(instance.getClass()
+        List<Field> fields = Arrays.asList(instance.getClass()
                 .getDeclaredFields());
 
-        for (Iterator <Field> iterator = fields.iterator();
-             iterator.hasNext();) {
+        for (Iterator<Field> iterator = fields.iterator();
+             iterator.hasNext(); ) {
             Field field = (Field) iterator.next();
 
             if (hasGetterAndSetter(field)) {
@@ -110,6 +110,7 @@ public class GetterAndSetterTester {
 
     /**
      * Returns the setter of the field or null if there is none.
+     *
      * @param field the field to get the setter from.
      * @return the setter method.
      */
@@ -118,7 +119,7 @@ public class GetterAndSetterTester {
             return null;
         }
 
-        Class <?> theClass = field.getDeclaringClass();
+        Class<?> theClass = field.getDeclaringClass();
         try {
             return theClass.getMethod("set" + nameWithCapital(field),
                     field.getType());
@@ -133,11 +134,12 @@ public class GetterAndSetterTester {
      * Both get(FieldName) and is(FieldName) method will be checked.
      * If the method return type is different from field type,
      * the method will be ignored.
+     *
      * @param field the field to get the getters from.
      * @return the getter method.
      */
     private Method getGetter(final Field field) {
-        Class <?> theClass = field.getDeclaringClass();
+        Class<?> theClass = field.getDeclaringClass();
 
         if (ignoredFields.contains(field.getName())) {
             return null;
@@ -165,6 +167,7 @@ public class GetterAndSetterTester {
      * Returns the name of the field with its first character as
      * a capital letter. useful to append it to a method name such
      * as a getter or setter.
+     *
      * @param field the field to get the name of.
      * @return the name.
      */
@@ -176,6 +179,7 @@ public class GetterAndSetterTester {
 
     /**
      * Returns true if the given field has a getter method.
+     *
      * @param field the field to check.
      * @return if it has a getter.
      */
@@ -185,6 +189,7 @@ public class GetterAndSetterTester {
 
     /**
      * Returns true if the given field has a setter method.
+     *
      * @param field the field to check.
      * @return if it has a setter.
      */
@@ -195,6 +200,7 @@ public class GetterAndSetterTester {
     /**
      * Returns true if the given field has both getter and
      * setter methods.
+     *
      * @param field the field to check.
      * @return if it has getter and setter.
      */
@@ -205,7 +211,8 @@ public class GetterAndSetterTester {
     /**
      * Test the getter and setter method of the field, using the given
      * instance of the class.
-     * @param field the field to test the getter and setter.
+     *
+     * @param field    the field to test the getter and setter.
      * @param instance the instance to use to test.
      */
     private void testGetterAndSetter(final Field field, final Object instance) {
@@ -230,7 +237,8 @@ public class GetterAndSetterTester {
     /**
      * Test the setter method of the field, using the given
      * instance of the class.
-     * @param field the field to test the setter.
+     *
+     * @param field    the field to test the setter.
      * @param instance the instance to use to test.
      */
     private void testSetter(final Field field, final Object instance) {
@@ -242,7 +250,8 @@ public class GetterAndSetterTester {
 
             try { //Maybe this helps XD
                 field.setAccessible(true);
-            } catch (Exception e1) {}
+            } catch (Exception e1) {
+            }
 
             TestCase.assertEquals("Failed setter test of field "
                             + field.getName() + " on classs "
@@ -259,7 +268,8 @@ public class GetterAndSetterTester {
     /**
      * Test the getter method of the field, using the given
      * instance of the class.
-     * @param field the field to test the getter.
+     *
+     * @param field    the field to test the getter.
      * @param instance the instance to use to test.
      */
     private void testGetter(final Field field, final Object instance) {
@@ -270,7 +280,8 @@ public class GetterAndSetterTester {
 
             try { //Maybe this helps XD
                 field.setAccessible(true);
-            } catch (Exception e1) {}
+            } catch (Exception e1) {
+            }
 
             field.set(instance, value);
             TestCase.assertEquals("Failed getter test of field "
@@ -325,7 +336,8 @@ public class GetterAndSetterTester {
 
                 try { //Maybe this helps XD
                     current.setAccessible(true);
-                } catch (Exception e1) {}
+                } catch (Exception e1) {
+                }
 
                 Class[] parameterTypes = current.getParameterTypes();
 
@@ -350,9 +362,10 @@ public class GetterAndSetterTester {
     /**
      * Sets a list of the names of the fields that should be ignored.
      * All the fields in the list won't be tested.
+     *
      * @param fields the ignoredFields to set.
      */
-    public void setIgnoredFields(final String...fields) {
+    public void setIgnoredFields(final String... fields) {
         ignoredFields = Arrays.asList(fields);
     }
 }
