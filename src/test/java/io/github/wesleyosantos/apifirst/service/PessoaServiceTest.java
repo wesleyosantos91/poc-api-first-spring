@@ -7,6 +7,7 @@ import io.swagger.model.ResponsePessoa;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -17,6 +18,8 @@ import java.time.LocalDate;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.verify;
 
 @Sql(value = "/load-database.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 @Sql(value = "/clean-database.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
@@ -34,6 +37,9 @@ public class PessoaServiceTest {
 
     @Before
     public void setUp() {
+
+        MockitoAnnotations.initMocks(this);
+
         requestPostPessoa = new RequestPostPessoa();
         requestPostPessoa.setNome("Gabriel Ducati Teixeira");
         requestPostPessoa.setCpf("10275977340");
@@ -84,6 +90,12 @@ public class PessoaServiceTest {
 
     @Test
     public void excluirPessoa() {
+
         this.pessoaService.excluirPessoa(1L);
+
+        PessoaService pessoaServiceMock = mock(PessoaService.class);
+        pessoaServiceMock.excluirPessoa(1L);
+
+        verify(pessoaServiceMock).excluirPessoa(1L);
     }
 }

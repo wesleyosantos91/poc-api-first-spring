@@ -65,7 +65,7 @@ public class PessoaService {
 
         Optional<Pessoa> pessoaOptional = this.pessoaRepository.findById(codigo);
 
-        return pessoaMapper.toResponsePessoa(pessoaOptional.orElseGet(null));
+        return pessoaMapper.toResponsePessoa(pessoaOptional.orElseThrow(() -> new ObjectNotFoundException("Pessoa com esse codigo não existe: " + codigo)));
 
     }
 
