@@ -20,3 +20,13 @@ script:
 
 before_install:
   - chmod +x mvnw
+
+after_success:
+  QGSTATUS=`curl -s -u  SONAR_TOKEN: https://sonarcloud.io/api/qualitygates/project_status?projectKey=io.github.wesleyosantos%3Aapi-first | jq '.projectStatus.status' | tr -d'"'`
+  if [ "$QGSTATUS" = "OK" ]
+  then
+  exit 0
+  elif [ "$QGSTATUS" = "ERROR" ]
+  then
+  exit 1
+  fi
