@@ -13,8 +13,9 @@
     <groupId>io.github.wesleyosantos</groupId>
     <artifactId>api-first</artifactId>
     <version>1.0.0-SNAPSHOT</version>
+
     <name>api-first</name>
-    <description>Demo project for Spring Boot</description>
+    <description>Prova de conceito - API FIRST</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -43,6 +44,15 @@
         <maven-compiler-plugin.version>1.18.6</maven-compiler-plugin.version>
         <jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version>
     </properties>
+
+    <developers>
+        <developer>
+            <email>wesleyosantos91@gmail.com</email>
+            <id>wesleyosantos91</id>
+            <name>Wesley Oliveira Santos</name>
+            <url>https://wesleyosantos91.github.io/</url>
+        </developer>
+    </developers>
 
     <dependencies>
         <dependency>
