@@ -17,7 +17,7 @@ sonarcloud-check:
     paths:
       - .sonar/cache
   script:
-    - ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+    - ./mvnw clean test verify sonar:sonar
   only:
     - merge_requests
     - master
