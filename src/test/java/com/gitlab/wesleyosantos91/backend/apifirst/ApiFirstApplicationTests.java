@@ -9,6 +9,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
@@ -19,15 +20,11 @@ public class ApiFirstApplicationTests {
     private String value;
 
     @Test
-    @DisplayName("Teste para verificar a variável de ambiente")
-    public void contextLoads() {
-        assertEquals("springboot-test", value);
-    }
-
-    @Test
     @DisplayName("Teste do start da aplicação")
     public void ApiFirstApplicatioMain() {
         ApiFirstApplication.main(new String[]{});
+
+        assertEquals("springboot-test", value);
     }
 
 }
