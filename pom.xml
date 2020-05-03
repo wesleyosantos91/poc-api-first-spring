@@ -30,6 +30,8 @@
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPaths>
         <sonar.language>java</sonar.language>
+        <sonar.projectKey>pocs8_poc-api-first</sonar.projectKey>
+        <sonar.organization>pocs8</sonar.organization>
 
         <jacoco.dataFile>${project.basedir}/../target/jacoco.exec</jacoco.dataFile>
         <jacoco.reporting.outputDirectory>${project.basedir}/../target/reports/jacoco</jacoco.reporting.outputDirectory>
