@@ -26,16 +26,9 @@
         <swagger-codegen-maven-plugin.version>3.0.8</swagger-codegen-maven-plugin.version>
         <swagger-codegen-generators.version>1.0.8</swagger-codegen-generators.version>
 
-        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-        <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPaths>
         <sonar.language>java</sonar.language>
         <sonar.projectKey>pocs8_poc-api-first</sonar.projectKey>
         <sonar.organization>pocs8</sonar.organization>
-
-        <jacoco.dataFile>${project.basedir}/../target/jacoco.exec</jacoco.dataFile>
-        <jacoco.reporting.outputDirectory>${project.basedir}/../target/reports/jacoco</jacoco.reporting.outputDirectory>
-        <jacoco.inclNoLocationClasses>true</jacoco.inclNoLocationClasses>
 
         <reflections.version>0.9.11</reflections.version>
         <spring-mock-mvc.version>3.3.0</spring-mock-mvc.version>
@@ -149,38 +142,19 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${jacoco-maven-plugin.version}</version>
-                <configuration>
-                    <destFile>${sonar.jacoco.reportPaths}</destFile>
-                    <append>true</append>
-                </configuration>
+                <version>0.8.2</version>
                 <executions>
                     <execution>
-                        <id>default-prepare-agent</id>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
                     <execution>
-                        <id>default-report</id>
+                        <id>report</id>
+                        <phase>test</phase>
                         <goals>
                             <goal>report</goal>
                         </goals>
-                        <configuration>
-                            <outputDirectory>${jacoco.reporting.outputDirectory}</outputDirectory>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>default-report-aggregate</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>report-aggregate</goal>
-                        </goals>
-                        <configuration>
-                            <dataFileIncludes>
-                                <dataFileInclude>${jacoco.dataFile}</dataFileInclude>
-                            </dataFileIncludes>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
