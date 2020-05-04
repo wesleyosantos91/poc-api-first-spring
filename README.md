@@ -3,12 +3,12 @@
 ## Prova de conceito - API FIRST
 
 > API first significa que a Application Programming Interface  é uma estratégia na qual a primeira ordem dos negócios é desenvolver uma API que coloque os interesses do desenvolvedor de destino em primeiro lugar e depois construa o produto sobre ele (seja um site, aplicativo móvel ou software SaaS). Ao desenvolver APIs com os desenvolvedores em mente, você e seus desenvolvedores estão economizando muito trabalho enquanto estabelecem as bases para que outros possam desenvolver.
-#Qualidade
 
-[![pipeline status](https://gitlab.com/user/userproject/badges/master/pipeline.svg)](https://gitlab.com/user/userproject/commits/master)
-
+# Qualidade
 
 [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=pocs8_poc-api-first&metric=alert_status)](https://sonarcloud.io/dashboard?id=pocs8_poc-api-first)
+
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=pocs8_poc-api-first&metric=coverage)](https://sonarcloud.io/component_measures?id=pocs8_poc-api-first&metric=coverage&view=list)
 
 [![SQALE_RATING](https://sonarcloud.io/api/project_badges/measure?project=pocs8_poc-api-first&metric=sqale_rating&template=FLAT)](https://sonarcloud.io/component_measures?id=pocs8_poc-api-first&metric=sqale_rating&view=list)
 [![SECURITY_RATING](https://sonarcloud.io/api/project_badges/measure?project=pocs8_poc-api-first&metric=security_rating&template=FLAT)](https://sonarcloud.io/component_measures?id=pocs8_poc-api-first&metric=security_rating)
