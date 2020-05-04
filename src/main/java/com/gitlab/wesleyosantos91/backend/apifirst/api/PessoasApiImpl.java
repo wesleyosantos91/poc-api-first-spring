@@ -32,13 +32,13 @@ public class PessoasApiImpl implements PessoasApi {
 
     @Override
     public ResponseEntity<ResponsePessoa> alterarPessoa(Long codigo, @Valid RequestPutPessoa body) {
-        return ResponseEntity.ok(this.pessoaService.alterarPessoa(codigo, body));
+        return ResponseEntity.ok(pessoaService.alterarPessoa(codigo, body));
     }
 
     @Override
     public ResponseEntity<ResponsePessoa> cadastrarPessoa(@Valid RequestPostPessoa body) {
 
-        ResponsePessoa responsePessoa = this.pessoaService.cadastrarPessoa(body);
+        ResponsePessoa responsePessoa = pessoaService.cadastrarPessoa(body);
         publisher.publishEvent(new RecursoCriadoEvent(this, response, responsePessoa.getCodigo()));
         return ResponseEntity.status(HttpStatus.CREATED).body(responsePessoa);
     }
@@ -46,19 +46,19 @@ public class PessoasApiImpl implements PessoasApi {
     @Override
     public ResponseEntity<ResponsePessoa> consultarPeloCodigo(Long codigo) {
 
-        return ResponseEntity.ok(this.pessoaService.consultarPeloCodigo(codigo));
+        return ResponseEntity.ok(pessoaService.consultarPeloCodigo(codigo));
     }
 
     @Override
     public ResponseEntity<List<ResponsePessoa>> consultarTodos() {
 
-        return ResponseEntity.ok(this.pessoaService.consultarTodos());
+        return ResponseEntity.ok(pessoaService.consultarTodos());
     }
 
     @Override
     public ResponseEntity<Void> excluirPessoa(Long codigo) {
 
-        this.pessoaService.excluirPessoa(codigo);
+        pessoaService.excluirPessoa(codigo);
 
         return ResponseEntity.noContent().build();
     }

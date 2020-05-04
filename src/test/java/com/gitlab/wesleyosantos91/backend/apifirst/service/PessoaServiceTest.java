@@ -58,7 +58,7 @@ public class PessoaServiceTest {
     @DisplayName("Deve alterar a o objeto pessoa")
     public void alterarPessoa() {
 
-        ResponsePessoa responsePessoa = this.pessoaService.alterarPessoa(1L, requestPutPessoa);
+        ResponsePessoa responsePessoa = pessoaService.alterarPessoa(1L, requestPutPessoa);
         assertThat(responsePessoa.getEmail()).isEqualTo("guilherme.gomes@uol.com.br");
     }
 
@@ -66,14 +66,14 @@ public class PessoaServiceTest {
     @DisplayName("Deve lançar ObjectNotFoundException")
     public void alterarPessoaException() {
         assertThrows(ObjectNotFoundException.class, () -> {
-            this.pessoaService.alterarPessoa(2L, requestPutPessoa);
+            pessoaService.alterarPessoa(2L, requestPutPessoa);
         });
     }
 
     @Test
     @DisplayName("Deve cadastrar uma pessoa")
     public void cadastrarPessoa() {
-        ResponsePessoa responsePessoa = this.pessoaService.cadastrarPessoa(requestPostPessoa);
+        ResponsePessoa responsePessoa = pessoaService.cadastrarPessoa(requestPostPessoa);
 
         assertThat(responsePessoa.getCodigo()).isEqualTo(2L);
     }
@@ -81,14 +81,14 @@ public class PessoaServiceTest {
     @Test
     @DisplayName("deve retornar todos umas lista de pessoas")
     public void consultarTodos() {
-        List<ResponsePessoa> responsePessoas = this.pessoaService.consultarTodos();
+        List<ResponsePessoa> responsePessoas = pessoaService.consultarTodos();
         assertThat(responsePessoas.size()).isGreaterThanOrEqualTo(1);
     }
 
     @Test
     @DisplayName("Deve retorna uma pessoa pelo seu código")
     public void consultarPeloCodigo() {
-        ResponsePessoa responsePessoa = this.pessoaService.consultarPeloCodigo(1L);
+        ResponsePessoa responsePessoa = pessoaService.consultarPeloCodigo(1L);
         assertThat(responsePessoa.getCodigo()).isEqualTo(1L);
     }
 
@@ -96,7 +96,7 @@ public class PessoaServiceTest {
     @DisplayName("Deve lançar ObjectNotFoundException")
     public void consultarPeloCodigoException() {
         assertThrows(ObjectNotFoundException.class, () -> {
-            this.pessoaService.consultarPeloCodigo(2L);
+            pessoaService.consultarPeloCodigo(2L);
         });
     }
 
@@ -104,7 +104,7 @@ public class PessoaServiceTest {
     @DisplayName("Deve excluir pessoa pelo seu código")
     public void excluirPessoa() {
 
-        this.pessoaService.excluirPessoa(1L);
+        pessoaService.excluirPessoa(1L);
 
         PessoaService pessoaServiceMock = mock(PessoaService.class);
         pessoaServiceMock.excluirPessoa(1L);

@@ -32,7 +32,7 @@ public class PessoaService {
     @Transactional
     public ResponsePessoa alterarPessoa(Long codigo, RequestPutPessoa body) {
 
-        Optional<Pessoa> pessoaOptional = this.pessoaRepository.findById(codigo);
+        Optional<Pessoa> pessoaOptional = pessoaRepository.findById(codigo);
 
         if (!pessoaOptional.isPresent()) {
             throw new ObjectNotFoundException(ErroEnum.PESSOA_COM_ESSE_CODIGO_NAO_EXISTE.getDetalhe() + codigo);
@@ -47,7 +47,7 @@ public class PessoaService {
     @Transactional
     public ResponsePessoa cadastrarPessoa(RequestPostPessoa body) {
 
-        Pessoa pessoa = this.pessoaRepository.save(pessoaMapper.toPessoa(body));
+        Pessoa pessoa = pessoaRepository.save(pessoaMapper.toPessoa(body));
 
         return pessoaMapper.toResponsePessoa(pessoa);
     }
@@ -55,7 +55,7 @@ public class PessoaService {
 
     public List<ResponsePessoa> consultarTodos() {
 
-        return this.pessoaRepository.findAll().stream().map(pessoaMapper::toResponsePessoa).collect(Collectors.toList());
+        return pessoaRepository.findAll().stream().map(pessoaMapper::toResponsePessoa).collect(Collectors.toList());
     }
 
     public ResponsePessoa consultarPeloCodigo(Long codigo) {
@@ -64,14 +64,14 @@ public class PessoaService {
             throw new ObjectNotFoundException(ErroEnum.PESSOA_COM_ESSE_CODIGO_NAO_EXISTE.getDetalhe() + codigo);
         }
 
-        Optional<Pessoa> pessoaOptional = this.pessoaRepository.findById(codigo);
+        Optional<Pessoa> pessoaOptional = pessoaRepository.findById(codigo);
 
         return pessoaMapper.toResponsePessoa(pessoaOptional.orElseThrow(() -> new ObjectNotFoundException(ErroEnum.PESSOA_COM_ESSE_CODIGO_NAO_EXISTE.getDetalhe() + codigo)));
 
     }
 
     public void excluirPessoa(Long codigo) {
-        this.pessoaRepository.deleteById(codigo);
+        pessoaRepository.deleteById(codigo);
     }
 
     private boolean exist(Long codigo) {
