@@ -4,6 +4,10 @@
 
 > API first significa que a Application Programming Interface  é uma estratégia na qual a primeira ordem dos negócios é desenvolver uma API que coloque os interesses do desenvolvedor de destino em primeiro lugar e depois construa o produto sobre ele (seja um site, aplicativo móvel ou software SaaS). Ao desenvolver APIs com os desenvolvedores em mente, você e seus desenvolvedores estão economizando muito trabalho enquanto estabelecem as bases para que outros possam desenvolver.
 
+# Build
+[![Build Status](https://travis-ci.com/wesleyosantos91/poc-api-first.svg?branch=master)](https://travis-ci.com/wesleyosantos91/poc-api-first)
+
+
 # Tecnologias
 - Java 8
 - Spring Boot 2.2.6.RELEASE
