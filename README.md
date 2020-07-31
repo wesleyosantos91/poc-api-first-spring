@@ -7,6 +7,8 @@
 # Build
 [![Build Status](https://travis-ci.com/wesleyosantos91/poc-api-first.svg?branch=master)](https://travis-ci.com/wesleyosantos91/poc-api-first)
 
+# License
+![GitHub](https://img.shields.io/github/license/wesleyosantos91/poc-api-first)
 
 # Tecnologias
 - Java 8
