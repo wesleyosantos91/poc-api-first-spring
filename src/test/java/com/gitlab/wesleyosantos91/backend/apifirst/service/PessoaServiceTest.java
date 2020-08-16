@@ -28,7 +28,7 @@ import static org.mockito.Mockito.verify;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @ActiveProfiles("dev")
-public class PessoaServiceTest {
+class PessoaServiceTest {
 
     @Autowired
     private PessoaService pessoaService;
@@ -56,7 +56,7 @@ public class PessoaServiceTest {
 
     @Test
     @DisplayName("Deve alterar a o objeto pessoa")
-    public void alterarPessoa() {
+    void alterarPessoa() {
 
         ResponsePessoa responsePessoa = pessoaService.alterarPessoa(1L, requestPutPessoa);
         assertThat(responsePessoa.getEmail()).isEqualTo("guilherme.gomes@uol.com.br");
@@ -64,7 +64,7 @@ public class PessoaServiceTest {
 
     @Test
     @DisplayName("Deve lançar ObjectNotFoundException")
-    public void alterarPessoaException() {
+    void alterarPessoaException() {
         assertThrows(ObjectNotFoundException.class, () -> {
             pessoaService.alterarPessoa(2L, requestPutPessoa);
         });
@@ -72,7 +72,7 @@ public class PessoaServiceTest {
 
     @Test
     @DisplayName("Deve cadastrar uma pessoa")
-    public void cadastrarPessoa() {
+    void cadastrarPessoa() {
         ResponsePessoa responsePessoa = pessoaService.cadastrarPessoa(requestPostPessoa);
 
         assertThat(responsePessoa.getCodigo()).isEqualTo(2L);
@@ -80,21 +80,21 @@ public class PessoaServiceTest {
 
     @Test
     @DisplayName("deve retornar todos umas lista de pessoas")
-    public void consultarTodos() {
+    void consultarTodos() {
         List<ResponsePessoa> responsePessoas = pessoaService.consultarTodos();
-        assertThat(responsePessoas.size()).isGreaterThanOrEqualTo(1);
+        assertThat(responsePessoas.size()).isPositive();
     }
 
     @Test
     @DisplayName("Deve retorna uma pessoa pelo seu código")
-    public void consultarPeloCodigo() {
+    void consultarPeloCodigo() {
         ResponsePessoa responsePessoa = pessoaService.consultarPeloCodigo(1L);
         assertThat(responsePessoa.getCodigo()).isEqualTo(1L);
     }
 
     @Test
     @DisplayName("Deve lançar ObjectNotFoundException")
-    public void consultarPeloCodigoException() {
+    void consultarPeloCodigoException() {
         assertThrows(ObjectNotFoundException.class, () -> {
             pessoaService.consultarPeloCodigo(2L);
         });
@@ -102,7 +102,7 @@ public class PessoaServiceTest {
 
     @Test
     @DisplayName("Deve excluir pessoa pelo seu código")
-    public void excluirPessoa() {
+    void excluirPessoa() {
 
         pessoaService.excluirPessoa(1L);
 

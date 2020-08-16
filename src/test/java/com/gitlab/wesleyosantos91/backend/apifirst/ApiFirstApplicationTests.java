@@ -14,14 +14,14 @@ import static org.mockito.Mockito.verify;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @ActiveProfiles("dev")
-public class ApiFirstApplicationTests {
+class ApiFirstApplicationTests {
 
     @Value("${variavel.teste}")
     private String value;
 
     @Test
     @DisplayName("Teste do start da aplicação")
-    public void ApiFirstApplicatioMain() {
+    void ApiFirstApplicatioMain() {
         ApiFirstApplication.main(new String[]{});
 
         assertEquals("springboot-test", value);

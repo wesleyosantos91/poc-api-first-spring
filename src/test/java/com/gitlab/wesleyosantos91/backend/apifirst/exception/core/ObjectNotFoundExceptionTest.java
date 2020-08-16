@@ -11,11 +11,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @ActiveProfiles("dev")
-public class ObjectNotFoundExceptionTest {
+class ObjectNotFoundExceptionTest {
 
     @Test
     @DisplayName("Deve lançar ObjectNotFoundException")
-    public void contextLoads() {
+    void contextLoads() {
 
         Assertions.assertThrows(ObjectNotFoundException.class, () -> {
             throw new ObjectNotFoundException("Teste Exception", new Exception());

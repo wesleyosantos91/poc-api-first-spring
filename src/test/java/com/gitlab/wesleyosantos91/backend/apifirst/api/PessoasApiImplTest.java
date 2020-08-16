@@ -28,7 +28,7 @@ import static org.hamcrest.Matchers.equalTo;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("dev")
-public class PessoasApiImplTest {
+class PessoasApiImplTest {
 
     @LocalServerPort
     private int porta;
@@ -56,7 +56,7 @@ public class PessoasApiImplTest {
 
     @Test
     @DisplayName("Deve alterar a o objeto pessoa")
-    public void alterarPessoa() {
+    void alterarPessoa() {
 
         given()
                 .pathParam("codigo", 1L)
@@ -79,7 +79,7 @@ public class PessoasApiImplTest {
 
     @Test
     @DisplayName("Deve cadastrar uma pessoa")
-    public void cadastrarPessoa() {
+    void cadastrarPessoa() {
 
         given()
                 .request()
@@ -104,7 +104,7 @@ public class PessoasApiImplTest {
 
     @Test
     @DisplayName("Deve retorna uma pessoa pelo seu código")
-    public void consultarPeloCodigo() {
+    void consultarPeloCodigo() {
         given()
                 .pathParam("codigo", 1L)
                 .get("/pessoas/{codigo}")
@@ -122,7 +122,7 @@ public class PessoasApiImplTest {
 
     @Test
     @DisplayName("Deve lançar ObjectNotFoundException")
-    public void consultarPeloCodigoException() {
+    void consultarPeloCodigoException() {
         given()
                 .pathParam("codigo", 2L)
                 .get("/pessoas/{codigo}")
@@ -135,7 +135,7 @@ public class PessoasApiImplTest {
 
     @Test
     @DisplayName("deve retornar todos umas lista de pessoas")
-    public void consultarTodos() {
+    void consultarTodos() {
         given()
                 .get("/pessoas")
                 .then()
@@ -146,7 +146,7 @@ public class PessoasApiImplTest {
 
     @Test
     @DisplayName("Deve excluir uma pessoa pelo seu código")
-    public void excluirPessoa() {
+    void excluirPessoa() {
         given()
                 .pathParam("codigo", 1L)
                 .request()

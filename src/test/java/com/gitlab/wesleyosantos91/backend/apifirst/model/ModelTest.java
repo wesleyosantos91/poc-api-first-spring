@@ -12,7 +12,7 @@ import java.util.Set;
 /**
  * Created by wesleyosantos91 on 2019-06-22.
  */
-public class ModelTest {
+class ModelTest {
 
     Set<Class<? extends Serializable>> allClasses;
     GetterAndSetterTester tester;
@@ -26,7 +26,7 @@ public class ModelTest {
 
     @Test
     @DisplayName("Deve Testar todas as entidades")
-    public void testarTodasEntidades() {
+    void testarTodasEntidades() {
         for (Class<? extends Object> clazz : allClasses)
             tester.testClass(clazz);
     }
