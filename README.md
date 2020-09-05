@@ -27,7 +27,7 @@
 ![GitHub](https://img.shields.io/github/license/wesleyosantos91/poc-api-first)
 
 # Tecnologias
-- Java 8
+- Java 11
 - Spring Boot 2.2.6.RELEASE
     - spring-boot-starter-web
     - spring-boot-starter-data-jpa
