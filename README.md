@@ -52,10 +52,20 @@
 A execução das aplicações são feitas através do de um comando Maven que envoca a inicialização do Spring Boot.
 
 - Scripts
-    - ```./mvnw clean spring-boot:run```
+    ### Executar docker-compose
+    - 1° comando: ``` cd src/main/docker/``` 
+    - 2° comando: ```docker-compose -f docker-compose.yml up``` 
+    ### Executar a aplicação
+    -  ```./mvnw clean compile spring-boot:run```
+    ### Executar testes
+    -  ```./mvnw clean compile verify sonar:sonar```
     
 # Utilização
 
+## Swagger
 http://localhost:8080/swagger-ui.html
+
+## Sonar
+http://localhost:9000/
 
 
