@@ -17,13 +17,6 @@ info:
     url: http://localhost:8085/pessoas/v1/suporte
     email: suporte@pessoaapi.com
 
-securityDefinitions:
-  BasicAuth:
-    type: basic
-
-security:
-  - BasicAuth: []
-
 paths:
   '/pessoas':
     post:

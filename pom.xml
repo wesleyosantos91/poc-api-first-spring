@@ -10,7 +10,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.gitlab.wesleyosantos91.backend.apifirst</groupId>
+    <groupId>io.github.wesleyosantos91.backend.apifirst</groupId>
     <artifactId>api-first</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
