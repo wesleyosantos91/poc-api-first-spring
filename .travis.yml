@@ -7,7 +7,7 @@ addons:
     token: $SONAR_TOKEN
 
 jdk:
-  - openjdk8
+  - oraclejdk11
 
 cache:
   directories:
