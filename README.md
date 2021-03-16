@@ -68,7 +68,7 @@ Trata-se de uma aplicação de prova de conceito para aplicar Api First utilizan
 - Mockito
 - Rest Assured
 - Tomcat (Embedded no Spring Boot)
-- Git (GitLab)
+- Git
 
 ## Execução
 
